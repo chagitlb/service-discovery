@@ -18,6 +18,6 @@ module "consul_cluster" {
 
 }
 
-resource "aws_consul_cluster" "consul_cluster" {
-    name  = var.cluster_name
-}
+# resource "aws_consul_cluster" "consul_cluster" {
+#     name  = var.cluster_name
+# }
