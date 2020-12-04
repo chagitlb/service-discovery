@@ -68,5 +68,15 @@ variable "availability_zones" {
   type        = list(string)
   default     = null
 }
+variable "ssh_key_name" {
+  description = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instances in this cluster. Set to an empty string to not associate a Key Pair."
+  type        = string
+  default     = null
+}
 
+variable "associate_public_ip_address" {
+  description = "If set to true, associate a public IP address with each EC2 Instance in the cluster."
+  type        = bool
+  default     = false
+}
 
