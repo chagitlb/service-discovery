@@ -9,7 +9,7 @@ output "cluster_size" {
 }
 
 output "launch_config_name" {
-  value       = aws_launch_configuration.launch_configuration.name
+  value       = aws_launch_configuration.consul_launch_config.name
   description = "This is the name of the launch_configuration used to bootstrap the cluster instances"
 }
 
@@ -21,4 +21,7 @@ output "cluster_tag_key" {
 output "cluster_tag_value" {
   value       = var.cluster_tag_value
   description = "This is the tag value used to allow the consul servers to autojoin"
+}
+output "aws_iam_instance_profile"  {
+  value = aws_iam_instance_profile.consul_agent.name
 }

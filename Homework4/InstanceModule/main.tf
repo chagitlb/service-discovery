@@ -11,6 +11,7 @@ resource "aws_instance" "ec2" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   key_name               = var.key_name
+  iam_instance_profile = var.iam_instance_profile_name
   vpc_security_group_ids = var.security_groups
   subnet_id              = var.subnets[count.index]
   tags                   = { Name = "${var.name}-${count.index}" }
