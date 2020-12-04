@@ -16,19 +16,19 @@ data "aws_iam_policy_document" "consul_agent" {
 
 resource "aws_iam_role" "consul_agent" {
   name               = "consul-agent"
-  assume_role_policy = data.aws_iam_policy_document.ecs_agent.json
+  assume_role_policy = data.aws_iam_policy_document.consul_agent.json
 }
 
 
 resource "aws_iam_role_policy_attachment" "consul_agent" {
-  role       = aws_iam_role.ecs_agent.name
+  role       = aws_iam_role.consul_agent.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 
 }
 
 resource "aws_iam_instance_profile" "consul_agent" {
   name = "consul-agent"
-  role = aws_iam_role.ecs_agent.name
+  role = aws_iam_role.consul_agent.name
 }
 
 
